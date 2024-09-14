@@ -4,7 +4,15 @@ import mongoose from "mongoose";
 import connectDB from "./db/index.js";
 import express from "express";
 
-connectDB();
+connectDB()
+  .then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+      console.log(`app listen on port ${process.env.PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("mongo db connection failed: ", error);
+  });
 
 const app = express();
 
