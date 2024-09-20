@@ -3,6 +3,7 @@ import "dotenv/config";
 import mongoose from "mongoose";
 import connectDB from "./db/index.js";
 import express from "express";
+import { app } from "./app.js";
 
 connectDB()
   .then(() => {
@@ -14,7 +15,7 @@ connectDB()
     console.error("mongo db connection failed: ", error);
   });
 
-const app = express();
+// const app = express();
 
 // app.get("/get-router", (req, res) => {
 //   res.send("hello world");
